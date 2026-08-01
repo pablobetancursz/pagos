@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0b0c">
+  <title>Pablo Betancur | Medios de pago</title>
+  <meta name="description" content="Medios de pago de Pablo Betancur">
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --card:#161618;
+      --card2:#1e1e21;
+      --text:#f5f5f7;
+      --muted:#a7a7ad;
+      --line:#2b2b2f;
+      --accent:#ffffff;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}
+    body{
+      min-height:100vh;
+      background:
+        radial-gradient(circle at 20% -10%, rgba(255,255,255,.08), transparent 34%),
+        radial-gradient(circle at 100% 0%, rgba(130,80,255,.10), transparent 30%),
+        var(--bg);
+    }
+    main{width:min(720px,100%);margin:0 auto;padding:42px 18px 56px}
+    .hero{text-align:center;margin:8px 0 28px}
+    .avatar{
+      width:64px;height:64px;border-radius:20px;margin:0 auto 14px;
+      display:grid;place-items:center;
+      background:linear-gradient(145deg,#2b2b2f,#111113);
+      border:1px solid #35353a;
+      font-weight:800;font-size:24px;letter-spacing:-1px;
+      box-shadow:0 14px 36px rgba(0,0,0,.3);
+    }
+    h1{font-size:30px;line-height:1.05;margin:0 0 8px;letter-spacing:-.8px}
+    .subtitle{margin:0;color:var(--muted);font-size:15px}
+    .notice{
+      margin:18px 0 22px;padding:13px 15px;border:1px solid var(--line);
+      background:rgba(255,255,255,.025);border-radius:16px;color:#c9c9ce;
+      font-size:13px;line-height:1.45;text-align:center
+    }
+    .bank{
+      background:linear-gradient(180deg,var(--card2),var(--card));
+      border:1px solid var(--line);border-radius:22px;margin:14px 0;overflow:hidden;
+      box-shadow:0 18px 42px rgba(0,0,0,.22)
+    }
+    .bank-head{
+      width:100%;border:0;background:transparent;color:var(--text);
+      padding:18px;display:flex;align-items:center;gap:14px;text-align:left;cursor:pointer
+    }
+    .bank-logo{
+      width:46px;height:46px;border-radius:14px;background:#fff;color:#111;
+      display:grid;place-items:center;font-weight:900;font-size:18px;flex:0 0 auto
+    }
+    .bank-logo.nu{background:#6f12a8;color:white;font-size:20px}
+    .bank-title{flex:1}
+    .bank-title strong{display:block;font-size:17px;margin-bottom:3px}
+    .bank-title span{display:block;color:var(--muted);font-size:13px}
+    .chev{font-size:20px;color:#8e8e93;transition:transform .22s ease}
+    .bank.open .chev{transform:rotate(180deg)}
+    .panel{display:none;padding:0 18px 20px}
+    .bank.open .panel{display:block}
+    .qr-wrap{background:#fff;border-radius:18px;padding:10px;overflow:hidden}
+    .qr-wrap img{display:block;width:100%;height:auto;border-radius:12px}
+    .alias{
+      margin:13px 0 0;padding:13px 14px;border:1px solid var(--line);
+      background:#111113;border-radius:14px;display:flex;justify-content:space-between;gap:12px;align-items:center
+    }
+    .alias small{display:block;color:var(--muted);margin-bottom:3px}
+    .alias b{font-size:16px}
+    .copy{
+      border:1px solid #343439;background:#202024;color:#fff;border-radius:12px;
+      min-height:44px;padding:10px 12px;font-weight:650;cursor:pointer
+    }
+    footer{margin-top:28px;text-align:center;color:#6f6f75;font-size:12px;line-height:1.5}
+  </style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div class="avatar">PB</div>
+    <h1>Pablo Betancur</h1>
+    <p class="subtitle">Selecciona tu medio de pago</p>
+  </section>
+
+  <div class="notice">
+    Toca un banco para mostrar su código QR. Verifica el nombre del destinatario antes de confirmar la transferencia.
+  </div>
+
+  <section class="bank" id="bancolombia">
+    <button class="bank-head" type="button" onclick="toggleBank('bancolombia')">
+      <div class="bank-logo">B</div>
+      <div class="bank-title">
+        <strong>Bancolombia</strong>
+        <span>Bre-B · Llave @pablos566</span>
+      </div>
+      <div class="chev">⌄</div>
+    </button>
+    <div class="panel">
+      <div class="qr-wrap">
+        <img src="bancolombia.png" alt="Código QR Bancolombia de Pablo Betancur">
+      </div>
+      <div class="alias">
+        <div>
+          <small>Llave</small>
+          <b>@pablos566</b>
+        </div>
+        <button class="copy" type="button" onclick="copyText('@pablos566', this)">Copiar</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="bank" id="nu">
+    <button class="bank-head" type="button" onclick="toggleBank('nu')">
+      <div class="bank-logo nu">nu</div>
+      <div class="bank-title">
+        <strong>Nu</strong>
+        <span>Bre-B · Llave @PBS566</span>
+      </div>
+      <div class="chev">⌄</div>
+    </button>
+    <div class="panel">
+      <div class="qr-wrap">
+        <img src="nu.jpeg" alt="Código QR Nu de Pablo Betancur">
+      </div>
+      <div class="alias">
+        <div>
+          <small>Llave Nu</small>
+          <b>@PBS566</b>
+        </div>
+        <button class="copy" type="button" onclick="copyText('@PBS566', this)">Copiar</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Página personal de medios de pago.<br>
+    No ingreses claves, contraseñas ni códigos de seguridad.
+  </footer>
+</main>
+
+<script>
+  function toggleBank(id){
+    const el = document.getElementById(id);
+    el.classList.toggle('open');
+  }
+
+  async function copyText(text, btn){
+    let copied = false;
+
+    try{
+      if(navigator.clipboard && window.isSecureContext){
+        await navigator.clipboard.writeText(text);
+        copied = true;
+      }
+    }catch(e){}
+
+    if(!copied){
+      const field = document.createElement('textarea');
+      field.value = text;
+      field.setAttribute('readonly', '');
+      field.style.position = 'fixed';
+      field.style.opacity = '0';
+      document.body.appendChild(field);
+      field.select();
+      field.setSelectionRange(0, field.value.length);
+
+      try{
+        copied = document.execCommand('copy');
+      }catch(e){}
+
+      field.remove();
+    }
+
+    if(copied){
+      const old = btn.textContent;
+      btn.textContent = 'Copiado';
+      setTimeout(()=>btn.textContent=old, 1400);
+    }else{
+      alert('Copia manualmente: ' + text);
+    }
+  }
+</script>
+</body>
+</html>
